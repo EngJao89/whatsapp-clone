@@ -4,13 +4,13 @@ const { app, Menu, Tray } = require('electron');
 app.dock.hide();
 
 app.on('ready', () => {
-  const tray = new Tray(resolve(__dirname, 'assets', 'visual-studio-code1.svg'));
+  const tray = new Tray(resolve(__dirname, 'assets', 'iconTemplate.png'));
 
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio', checked: true }
   ]);
 
-  tray.setToolTip('This is my application.');
+  tray.setToolTip('This is my application');
   tray.setContextMenu(contextMenu);
 });
 
