@@ -19,5 +19,8 @@
   "homepage": "https://github.com/EngJao89/whatsapp-clone#readme",
   "devDependencies": {
     "electron": "^16.0.7"
+  },
+  "dependencies": {
+    "electron-store": "^8.0.1"
   }
 }

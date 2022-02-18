@@ -1,15 +1,35 @@
-const { resolve } = require('path');
+const { resolve, baseName } = require('path');
 const { app, Menu, Tray, dialog } = require('electron');
+const Store = require('electron-store');
+
+const schema = {
+  projects: {
+    type: 'string'
+  }
+}
+
+const store = new Store({ schema });
 
 app.dock.hide();
 
 app.on('ready', () => {
   const tray = new Tray(resolve(__dirname, 'assets', 'iconTemplate.png'));
+  const storedProjects = store.get('projects');
+  const projects = storedProjects ? JSON.parse(storedProjects) : [];
+
+  const items = projects.map((project) => {
+    return { label: project.name, click: () => spawn.sync('code', [project.path])}
+  });
+
+  console.log(projects);
 
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio', checked: true, click: () => {
       const path = dialog.showOpenDialog({ properties: ['openDirectory'] });
-        console.log(path);
+        store.set('projects', JSON.stringify([...projects, {
+          path,
+          name: baseName(path),
+        }]));
     } }
   ]);
 
