@@ -35,15 +35,37 @@ app.on('ready', () => {
       label: 'Adicionar novo projeto...', 
       click: () => {
         const path = dialog.showOpenDialog({ properties: ['openDirectory'] });
+        const name = baseName(path);
+
         store.set('projects', JSON.stringify([...projects, {
           path,
-          name: baseName(path),
+          name,
         }]));
+
+        const item = new MenuItem({ label: name, click: () => { spawn.sync('code', [path]); } });
+
+        contextMenu.append(item);
       }, 
     },
   ]);
 
-  tray.setToolTip('This is my application');
+  contextMenu.insert(1, new MenuItem({ 
+    label: 'Adicionar novo projeto...', 
+    click: () => {
+      const path = dialog.showOpenDialog({ properties: ['openDirectory'] });
+      const name = baseName(path);
+
+      store.set('projects', JSON.stringify([...projects, {
+        path,
+        name,
+      }]));
+
+      const item = new MenuItem({ label: name, click: () => { spawn.sync('code', [path]); } });
+
+      contextMenu.append(item);
+    },
+  }));
+
   tray.setContextMenu(contextMenu);
 });
 
