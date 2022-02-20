@@ -1,5 +1,7 @@
 const { resolve, baseName } = require('path');
-const { app, Menu, Tray, dialog } = require('electron');
+const { 
+  app, Menu, MenuItem, Tray, dialog 
+} = require('electron');
 const Store = require('electron-store');
 
 const schema = {
@@ -30,22 +32,6 @@ app.on('ready', () => {
     ...items,
     { 
       type: 'separator',
-    },
-    { 
-      label: 'Adicionar novo projeto...', 
-      click: () => {
-        const path = dialog.showOpenDialog({ properties: ['openDirectory'] });
-        const name = baseName(path);
-
-        store.set('projects', JSON.stringify([...projects, {
-          path,
-          name,
-        }]));
-
-        const item = new MenuItem({ label: name, click: () => { spawn.sync('code', [path]); } });
-
-        contextMenu.append(item);
-      }, 
     },
   ]);
 
