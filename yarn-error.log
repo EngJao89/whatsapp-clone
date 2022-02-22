@@ -1,0 +1,63 @@
+Arguments: 
+  /usr/local/bin/node /Users/joaoricardomartinsribeiro/.node/corepack/yarn/1.22.15/bin/yarn.js add electron-builder --dev
+
+PATH: 
+  /Users/joaoricardomartinsribeiro/.rvm/gems/ruby-2.5.1/bin:/Users/joaoricardomartinsribeiro/.rvm/gems/ruby-2.5.1@global/bin:/Users/joaoricardomartinsribeiro/.rvm/rubies/ruby-2.5.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/joaoricardomartinsribeiro/.rvm/gems/ruby-2.5.1/bin:/Users/joaoricardomartinsribeiro/.rvm/gems/ruby-2.5.1@global/bin:/Users/joaoricardomartinsribeiro/.rvm/rubies/ruby-2.5.1/bin:/Users/joaoricardomartinsribeiro/.rvm/bin:/Users/joaoricardomartinsribeiro/.rvm/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.13.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/electron-store: ETIMEDOUT
+      at Timeout._onTimeout (/Users/joaoricardomartinsribeiro/.node/corepack/yarn/1.22.15/lib/cli.js:141545:19)
+      at listOnTimeout (node:internal/timers:557:17)
+      at processTimers (node:internal/timers:500:7)
+
+npm manifest: 
+  {
+    "name": "code-tray",
+    "version": "1.0.0",
+    "description": "Open VScode projects from tray menu.",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron .",
+      "pack": "electron-builder --dir",
+      "dist": "electron-builder",
+      "postinstall": "electron-builder install-app-deps",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/EngJao89/whatsapp-clone.git"
+    },
+    "author": "João Ricardo Martins Ribeiro",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/EngJao89/whatsapp-clone/issues"
+    },
+    "homepage": "https://github.com/EngJao89/whatsapp-clone#readme",
+    "devDependencies": {
+      "electron": "^16.0.7"
+    },
+    "dependencies": {
+      "electron-store": "^8.0.1"
+    },
+    "build": {
+      "appId": "your.id",
+      "mac": {
+        "category": "your.app.category.type"
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
