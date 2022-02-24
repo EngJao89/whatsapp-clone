@@ -21,9 +21,13 @@
   },
   "homepage": "https://github.com/EngJao89/whatsapp-clone#readme",
   "devDependencies": {
-    "electron": "^16.0.7"
+    "eslint": "^8.9.0",
+    "eslint-plugin-import": "^2.25.3"
   },
   "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "electron": "^16.0.7",
+    "electron-builder": "^22.14.13",
     "electron-store": "^8.0.1"
   },
   "build": {
